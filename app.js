@@ -1,9 +1,9 @@
-const hourlyRate = 80;
-const availableDays = 11 - 2;
-const needDays = 40 / 5;
-if (availableDays >= needDays) {
-    let payment = hourlyRate * 40;
-    console.log(`True: ${payment}`)
+const monthPercent = 7 / 12;
+const startDeposit = 12000;
+const result = startDeposit * (1 + monthPercent / 100) ** 24;
+if (result >= 13500) {
+    console.log(`Отлично! Дом - куплен!`);
+    console.log(`Остаток денежных средств: ${result - 13500} $`);
 } else {
-    console.log(`False`)
+    console.log(`Увы! Нехватает ${13500 - result} $`);
 }
