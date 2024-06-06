@@ -1,4 +1,4 @@
-let languages = prompt("Пожалуйста выберите язык");
+let languages = prompt("Пожалуйста выберите язык").toLowerCase();
 let results;
 switch (languages) {
     case "ru":
