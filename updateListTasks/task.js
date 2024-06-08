@@ -13,7 +13,7 @@ console.log(list);
 // Удаление задачи по названию
 function deleteTask(task) {
     if (list.includes(task)) {
-        list.splice(list.indexOf(task), 1);
+        return list.splice(list.indexOf(task), 1);
     }
 }
 
@@ -22,10 +22,11 @@ console.log(list)
 
 // Перенос элемента в начало листа
 function replaceTask(task) {
-    if (list.includes(task)) {
-        const el = list.splice(list.indexOf(task), 1)[0];
-        list.unshift(el)
+    const el = deleteTask(task)[0];
+    if (!el) {
+        return;
     }
+    list.unshift(el);
 }
 
 replaceTask('Task 4');
