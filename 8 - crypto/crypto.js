@@ -1,17 +1,23 @@
-function encoder(text) {
-    const arr = text.split('');
-    const firstPart = arr.splice(0, 3)
-    return arr.concat(firstPart).join('');
+function crypto(password) {
+    const arr = password.split('');
+    const middleIndex = Math.floor(arr.length / 2);
+    const firstHalf = arr.slice(0, middleIndex).reverse();
+    const secondHalf = arr.slice(middleIndex).reverse();
+    const encryptedPassword = firstHalf.concat(secondHalf);
+    return encryptedPassword.join('');
 }
 
-function decoder(cryptoText, expect) {
-    const arr = cryptoText.split('');
-    const findPart = arr.splice(arr.length - 3).join('');
-    const decryptedText = findPart.concat(arr.join(''));
-    return decryptedText === expect;
+function check(originalPassword, cryptoPassword) {
+    if (!cryptoPassword || !originalPassword) {
+        return false;
+    }
+    return originalPassword === crypto(cryptoPassword);
 }
 
-const password = 'mypassword';
-const cryptoPassword = encoder(password);
-const passwordRsl = decoder(cryptoPassword, password);
-console.log(`Пароли: ${passwordRsl ? 'идентичны!' : 'не совпадают!'}`);
+
+const password = 'password';
+const cryptoPassword = crypto(password);
+console.log(cryptoPassword)
+const decryptPassword = crypto(cryptoPassword);
+console.log(decryptPassword)
+console.log(`Пароли: ${check(password, cryptoPassword) ? 'идентичны!' : 'не совпадают!'}`);
