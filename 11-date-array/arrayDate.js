@@ -7,7 +7,7 @@ function validateDateFirst(date) {
                     if (innerElement[1] === Number('02') && Number(innerElement[0]) > 28 ) {
                         return false;
                     }
-                    if(Number(innerElement[2]) < 0) {
+                    if(Number(innerElement[2]) < 1970 || Number(innerElement[2]) > 2100) {
                         return false;
                     } else if (Number(innerElement[1]) < 1 || Number(innerElement[1]) > 12) {
                         return false;
