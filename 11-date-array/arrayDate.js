@@ -15,10 +15,11 @@ function validateDateFirst(date) {
                 })
                 .filter(innerElement => {
                     if (innerElement[1] === '02') {
-                        if (isLeapYear(innerElement[2]) && Number(innerElement[0]) > 29) {
-                            return false;
-                        } else if (Number(innerElement[0]) > 28) {
-                            return false;
+                        if (Number(innerElement[0] > 28)) {
+                            if (isLeapYear(innerElement[2]) && Number(innerElement[0]) === 29) {
+                                return true;
+                            }
+                            return false
                         }
                     }
                     if(Number(innerElement[2]) < 1970 || Number(innerElement[2]) > 2100) {
