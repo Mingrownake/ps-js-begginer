@@ -12,16 +12,7 @@ const list = {
         return this.toDoList.find((element) => element.id === id);
     },
     getIndexById: function (id) {
-        let rsl = -1;
-        this.toDoList.find((element, index) => {
-            if(element.id === id) {
-                rsl = index;
-            }
-        })
-        return rsl;
-    },
-    getIndexTaskById: function (id) {
-        return this.toDoList.indexOf()
+        return this.toDoList.findIndex(el => el.id === id);
     },
     addTask: function (title, id, priority) {
         if (!title || isNaN(id) || isNaN(priority)) {
@@ -44,7 +35,7 @@ const list = {
             console.log(`Задачи с id: ${id} в списке задач нет.`);
             return false;
         }
-        this.toDoList.splice(this.getIndexById(id), 1)
+        this.toDoList = this.toDoList.filter(el => el.id !== id)
     },
     changeTask: function (id, changeField) {
         const task = this.getTaskById(id);
