@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Calc</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script defer src="./scripts/app.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="main__panel">
+            <div class="container-input-form">
+                <div class="container-input-form__form">
+                    <label for="input-form-first">Первый</label>
+                    <input type="number" id="input-form-first" required placeholder="0">
+                </div>
+                <div class="container-input-form__form">
+                    <label for="input-form-second">Второй</label>
+                    <input type="number" id="input-form-second" required placeholder="0">
+                </div>
+            </div>
+            <div class="container-button">
+                <div class="container-button__button">
+                    <button type="submit" id="button-sum" onclick="Sum()">+</button>
+                </div>
+                <div class="container-button__button">
+                    <button type="submit" id="button-sub" onclick="Sub()">-</button>
+                </div>
+            </div>
+            <div class="result-panel">
+                <span class="result-panel__text">Результат:</span>
+                <span class="result-panel__value" id="result">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
